@@ -1,5 +1,5 @@
-import PopularCuisine from "@/components/common/PopularCuisine";
-import SearchBar from "@/components/common/SearchBar";
+import PopularCuisine from "@/common/PopularCuisine";
+import SearchBar from "@/common/SearchBar";
 import SwiggyAssets from "@/constants/SwiggyAssets";
 
 const HomePage = () => {
