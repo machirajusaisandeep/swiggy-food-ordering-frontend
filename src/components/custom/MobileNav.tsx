@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const MobileNav = () => {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
   return (
     <Sheet>
@@ -20,17 +20,31 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent>
         <SheetTitle>
-          <span>Welcome to Swiggy</span>
+          {isAuthenticated ? (
+            <span>{user?.name}</span>
+          ) : (
+            <span>Welcome to Swiggy!</span>
+          )}
         </SheetTitle>
         <Separator />
-        <SheetDescription>
-          <Button
-            variant="default"
-            className="flex-1 font-bold bg-orange-500"
-            onClick={() => loginWithRedirect()}
-          >
-            Log in
-          </Button>
+        <SheetDescription className="flex">
+          {isAuthenticated ? (
+            <Button
+              variant="default"
+              className="flex-1 font-bold bg-orange-500"
+              onClick={() => logout()}
+            >
+              Log out
+            </Button>
+          ) : (
+            <Button
+              variant="default"
+              className="flex-1 font-bold bg-orange-500"
+              onClick={() => loginWithRedirect()}
+            >
+              Log in
+            </Button>
+          )}
         </SheetDescription>
       </SheetContent>
     </Sheet>
