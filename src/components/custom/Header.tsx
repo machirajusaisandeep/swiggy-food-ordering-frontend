@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import swiggyLogo from "/swiggyLogo.svg";
 import MobileNav from "./MobileNav";
+import DesktopNav from "./DesktopNav";
 
 const Header = () => {
   return (
@@ -11,6 +12,9 @@ const Header = () => {
         </Link>
         <div className="md:hidden">
           <MobileNav />
+        </div>
+        <div className="hidden md:block">
+          <DesktopNav />
         </div>
       </div>
     </div>
