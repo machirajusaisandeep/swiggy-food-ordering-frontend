@@ -13,6 +13,8 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
+import { User } from "@/types";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -28,11 +30,19 @@ type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
   onSave: (data: UserFormData) => void;
-  isLoading: boolean;
+  isUpdateLoading: boolean;
+  currentUser: User;
 };
 
-const UserProfileForm = ({ onSave, isLoading }: Props) => {
-  const form = useForm<UserFormData>({ resolver: zodResolver(formSchema) });
+const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
+  const form = useForm<UserFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: currentUser,
+  });
+
+  useEffect(() => {
+    form.reset(currentUser);
+  }, [currentUser, form]);
 
   return (
     <Form {...form}>
@@ -158,7 +168,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             }}
           ></FormField>
         </div>
-        {isLoading ? (
+        {isUpdateLoading ? (
           <p>loading...</p>
         ) : (
           <Button variant="default" className="w-full" type="submit">
