@@ -5,7 +5,7 @@ import DesktopNav from "./DesktopNav";
 
 const Header = () => {
   return (
-    <div className="py-4">
+    <div className="py-4 border bottom-1">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/">
           <img src={swiggyLogo} alt="Swiggy Food ordering logo" />
