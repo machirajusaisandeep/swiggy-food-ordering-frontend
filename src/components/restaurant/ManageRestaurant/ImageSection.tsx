@@ -33,6 +33,7 @@ const ImageSection = () => {
             />
           </AspectRatio>
         )}
+
         <FormField
           control={control}
           name="imageFile"
@@ -46,6 +47,7 @@ const ImageSection = () => {
                   onChange={(event) =>
                     field.onChange(
                       event.target.files ? event.target.files[0] : null
+                      //TODO: preview uploading image
                     )
                   }
                 />

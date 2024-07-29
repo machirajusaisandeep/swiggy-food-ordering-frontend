@@ -77,7 +77,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"name"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -93,7 +93,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"addressLine1"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>AddressLine1</FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -109,7 +109,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"city"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>City</FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -125,7 +125,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"state"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>State</FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -141,7 +141,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"country"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>Country</FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -157,7 +157,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"pincode"}
             render={({ field }) => {
               return (
-                <FormItem>
+                <FormItem className="mt-2">
                   <FormLabel>Pincode</FormLabel>
                   <FormControl>
                     <Input {...field} />

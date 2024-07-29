@@ -26,6 +26,7 @@ const CuisinesSection = () => {
           <FormItem>
             <div className="grid md:grid-cols-5 gap-1">
               {cuisineList.map((cuisineItem: string) => (
+                //TODO: responsive in mobile
                 <CuisineCheckbox
                   key={cuisineItem}
                   cuisine={cuisineItem}
