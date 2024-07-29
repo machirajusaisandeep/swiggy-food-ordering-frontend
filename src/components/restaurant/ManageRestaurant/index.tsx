@@ -70,12 +70,11 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       return;
     }
 
-    // price lowest domination of 100 = 100pence == 1GBP
     const deliveryPriceFormatted = parseInt(
-      (restaurant.deliveryPrice / 100).toFixed(2)
+      (restaurant?.deliveryPrice / 100).toFixed(2)
     );
 
-    const menuItemsFormatted = restaurant.menuItems.map((item) => ({
+    const menuItemsFormatted = restaurant?.menuItems?.map((item) => ({
       ...item,
       price: parseInt((item.price / 100).toFixed(2)),
     }));
@@ -118,7 +117,6 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     if (formDataJson.imageFile) {
       formData.append(`imageFile`, formDataJson.imageFile);
     }
-
     onSave(formData);
   };
 

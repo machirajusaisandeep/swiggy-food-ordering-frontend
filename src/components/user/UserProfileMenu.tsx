@@ -24,6 +24,9 @@ const UserProfileMenu = () => {
         <DropdownMenuItem>
           <Link to="/profile">Profile</Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link to="/manage-restaurant">Manage Restaurant</Link>
+        </DropdownMenuItem>
         <Separator className="my-2" />
         <DropdownMenuItem>
           <Button
