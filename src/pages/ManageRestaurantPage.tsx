@@ -1,8 +1,14 @@
-import { useCreateRestaurant } from "@/api/RestaurantApi";
+import { useCreateRestaurant, useGetRestaurant } from "@/api/RestaurantApi";
 import ManageRestaurantForm from "@/components/restaurant/ManageRestaurant";
 
 const ManageRestaurantPage = () => {
   const { isLoading, createRestaurant } = useCreateRestaurant();
+  const { restaurant } = useGetRestaurant();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <ManageRestaurantForm
@@ -11,6 +17,7 @@ const ManageRestaurantPage = () => {
           createRestaurant(formData);
         }}
         isLoading={isLoading}
+        restaurant={restaurant}
       />
     </div>
   );
