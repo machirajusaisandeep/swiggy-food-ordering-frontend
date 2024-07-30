@@ -9,6 +9,7 @@ import {
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
@@ -27,24 +28,27 @@ const MobileNav = () => {
           )}
         </SheetTitle>
         <Separator />
-        <SheetDescription className="flex">
-          {isAuthenticated ? (
-            <Button
-              variant="default"
-              className="flex-1 font-bold bg-orange-500"
-              onClick={() => logout()}
-            >
-              Log out
-            </Button>
-          ) : (
-            <Button
-              variant="default"
-              className="flex-1 font-bold bg-orange-500"
-              onClick={() => loginWithRedirect()}
-            >
-              Log in
-            </Button>
-          )}
+        <SheetDescription className="flex mt-4">
+          <div className="flex flex-col space-y-8">
+            <Link to="/faq">FAQ</Link>
+            {isAuthenticated ? (
+              <Button
+                variant="default"
+                className="flex-1 font-bold bg-orange-500"
+                onClick={() => logout()}
+              >
+                Log out
+              </Button>
+            ) : (
+              <Button
+                variant="default"
+                className="flex-1 font-bold bg-orange-500"
+                onClick={() => loginWithRedirect()}
+              >
+                Log in
+              </Button>
+            )}
+          </div>
         </SheetDescription>
       </SheetContent>
     </Sheet>

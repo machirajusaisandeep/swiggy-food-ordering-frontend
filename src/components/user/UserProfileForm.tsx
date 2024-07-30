@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { User } from "@/types";
 import { useEffect } from "react";
+import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -51,9 +52,9 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
           console.log(data);
           onSave(data);
         })}
-        className="space-y-4"
+        className="space-y-4 bg-gray-50 p-10 rounded-lg"
       >
-        <div>
+        <div className="space-y-4">
           <h2 className="text-xl font-bold mb-2">User Profile</h2>
           <FormDescription>Update your profile details.</FormDescription>
           <Separator className="my-4" />
@@ -65,7 +66,7 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input disabled {...field} />
+                    <Input className="bg-white" disabled {...field} />
                   </FormControl>
                 </FormItem>
               );
@@ -77,10 +78,10 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"name"}
             render={({ field }) => {
               return (
-                <FormItem className="mt-2">
+                <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input className="bg-white" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,80 +94,83 @@ const UserProfileForm = ({ onSave, isUpdateLoading, currentUser }: Props) => {
             name={"addressLine1"}
             render={({ field }) => {
               return (
-                <FormItem className="mt-2">
-                  <FormLabel>AddressLine1</FormLabel>
+                <FormItem>
+                  <FormLabel>Address</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Textarea className="resize-none bg-white" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               );
             }}
           ></FormField>
+          <div className="flex gap-4 ">
+            <FormField
+              control={form.control}
+              name={"city"}
+              render={({ field }) => {
+                return (
+                  <FormItem className="flex-1">
+                    <FormLabel>City</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
 
-          <FormField
-            control={form.control}
-            name={"city"}
-            render={({ field }) => {
-              return (
-                <FormItem className="mt-2">
-                  <FormLabel>City</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          ></FormField>
+            <FormField
+              control={form.control}
+              name={"state"}
+              render={({ field }) => {
+                return (
+                  <FormItem className="flex-1">
+                    <FormLabel>State</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
+          </div>
 
-          <FormField
-            control={form.control}
-            name={"state"}
-            render={({ field }) => {
-              return (
-                <FormItem className="mt-2">
-                  <FormLabel>State</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          ></FormField>
+          <div className="flex gap-4 ">
+            <FormField
+              control={form.control}
+              name={"country"}
+              render={({ field }) => {
+                return (
+                  <FormItem className="flex-1">
+                    <FormLabel>Country</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
 
-          <FormField
-            control={form.control}
-            name={"country"}
-            render={({ field }) => {
-              return (
-                <FormItem className="mt-2">
-                  <FormLabel>Country</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          ></FormField>
-
-          <FormField
-            control={form.control}
-            name={"pincode"}
-            render={({ field }) => {
-              return (
-                <FormItem className="mt-2">
-                  <FormLabel>Pincode</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              );
-            }}
-          ></FormField>
+            <FormField
+              control={form.control}
+              name={"pincode"}
+              render={({ field }) => {
+                return (
+                  <FormItem className="flex-1">
+                    <FormLabel>Pincode</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
+          </div>
         </div>
         {isUpdateLoading ? (
           <p>loading...</p>
