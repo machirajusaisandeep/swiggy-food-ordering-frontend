@@ -66,3 +66,8 @@ export type RestaurantSearchResponse = {
     pages: number;
   };
 };
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
