@@ -8,7 +8,7 @@ const SearchBar = () => {
         placeholder="Search"
         className="flex-1 text-sm text-foreground outline-none focus:border-accent"
       />
-      <Search className="w-4 h-4 text-slate-500" />
+      <Search className="w-4 h-4 text-slate-500 cursor-pointer" />
     </div>
   );
 };
